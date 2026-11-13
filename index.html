@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>COSMOS · Calculus Navigation for Deep Space</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Navigate the universe with calculus. Real orbital data, AI mission analyst, black hole lab and maths guide.">
+  <meta name="theme-color" content="#03010c">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<nav>
+  <b>COSMOS</b>
+  <a href="#home">Home</a>
+  <a href="#universe">Universe</a>
+  <a href="#agent">AI Mission Analyst</a>
+  <a href="#blackholes">Black Holes</a>
+  <a href="#maths">Maths Guide</a>
+  <a href="#glossary">Glossary</a>
+</nav>
+
+<!-- ═══════════════════════════ HOME ═══════════════════════════ -->
+<section class="pg on" id="home">
+  <div class="w">
+    <div class="hero">
+      <h1>COSMOS</h1>
+      <p class="mu" style="max-width:660px;margin:10px auto">
+        Navigate the universe with calculus. Real orbital data, real astronomical
+        objects, and an AI mission analyst that computes the safest route and writes
+        the report: how, why and where to move.
+      </p>
+    </div>
+    <div class="g">
+      <a class="cd" href="#universe">
+        <h3>🌌 Universe</h3>
+        <p>3-D Sun, all 8 planets and Pluto, plus stars, nebulae, galaxies and
+           black holes with real distances and masses.</p>
+      </a>
+      <a class="cd" href="#agent">
+        <h3>🛰️ AI Mission Analyst</h3>
+        <p>Pick a start and a research target. It computes launch window, fuel,
+           radiation, risk and gives a full report.</p>
+      </a>
+      <a class="cd" href="#blackholes">
+        <h3>🕳️ Black Hole Lab</h3>
+        <p>Schwarzschild radius, time dilation, tidal forces and Hawking
+           temperature, live.</p>
+      </a>
+      <a class="cd" href="#maths">
+        <h3>📐 Maths Guide</h3>
+        <p>Which derivative, integral or gradient is behind each number.</p>
+      </a>
+      <a class="cd" href="#glossary">
+        <h3>📖 Glossary</h3>
+        <p>Key terms explained: AU, light-year, Δv, Hohmann transfer, Tsiolkovsky
+           equation, and more.</p>
+      </a>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="stats-bar cd">
+      <div class="stat"><span class="stat-val" id="sv-planets">9</span><span class="stat-lbl">Planets tracked</span></div>
+      <div class="stat"><span class="stat-val" id="sv-objects">12</span><span class="stat-lbl">Deep-space objects</span></div>
+      <div class="stat"><span class="stat-val" id="sv-date"></span><span class="stat-lbl">Today's date</span></div>
+      <div class="stat"><span class="stat-val" id="sv-day"></span><span class="stat-lbl">J2000 day</span></div>
+    </div>
+
+    <div class="cd" style="margin-top:14px">
+      <h3>Data and limits</h3>
+      <p class="mu">Planet positions come from J2000 mean orbital elements (JPL), propagated
+      to today's date on circular orbits, so they are accurate to a few degrees.
+      Distances and masses of deep-space objects are published astronomical values.
+      This is an educational planning tool, not flight-certified software.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ UNIVERSE ════════════════════════ -->
+<section class="pg" id="universe">
+  <div id="hint">
+    Click an object · drag to orbit · scroll to zoom · time
+    <input id="sp" type="range" min="0" max="200" value="15" style="width:90px;vertical-align:middle"> days/s
+  </div>
+  <div id="chips"></div>
+  <div id="info" class="cd"></div>
+</section>
+
+<!-- ═══════════════════════════ AGENT ══════════════════════════ -->
+<section class="pg" id="agent">
+  <div class="w">
+    <h2>🛰️ AI Mission Analyst</h2>
+    <p class="mu">An on-device agent: it reads real orbital data, builds a hazard field,
+    solves orbital and path-optimisation calculus, then writes your mission report.
+    Nothing is uploaded.</p>
+
+    <div class="cd">
+      <div class="row">
+        <label>From <select id="so"></select></label>
+        <label>Research target <select id="st"></select></label>
+        <label>Ship speed (deep space)
+          <select id="sv">
+            <option value="17">Voyager 1: 17 km/s (real)</option>
+            <option value="29979">0.1 c (hypothetical)</option>
+            <option value="149896">0.5 c (hypothetical)</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <label>Caution λ <b id="lv">1.0</b>
+          <input id="lam" type="range" min="0" max="3" step=".1" value="1">
+        </label>
+        <button id="go">▶ Run mission analysis</button>
+        <button id="clear-rep" style="opacity:.6">✕ Clear</button>
+      </div>
+    </div>
+
+    <canvas id="mc" width="900" height="560"></canvas>
+    <div id="log" class="cd" style="margin-top:10px">Agent idle. Choose a mission and press Run.</div>
+    <div id="rep"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ BLACK HOLES ═════════════════════ -->
+<section class="pg" id="blackholes">
+  <div class="w">
+    <h2>🕳️ Black Hole Lab</h2>
+    <div class="cd">
+      <div class="row">
+        <button data-e="1.326">Cygnus X-1</button>
+        <button data-e="6.633">Sgr A*</button>
+        <button data-e="9.813">M87*</button>
+      </div>
+      <p>Mass: <b id="bn"></b> M☉
+        <input id="bm" type="range" min="0.3" max="10.5" step=".01" value="1.326" style="width:100%">
+      </p>
+      <p>Your distance: <b id="kn"></b> × r<sub>s</sub>
+        <input id="bk" type="range" min="1.01" max="30" step=".01" value="3" style="width:100%">
+      </p>
+      <div id="bo"></div>
+    </div>
+
+    <div class="g">
+      <div class="cd">
+        <h3>Anatomy</h3>
+        <p>Event horizon <code>r_s = 2GM/c²</code>. Photon sphere <code>1.5 r_s</code>.
+           Innermost stable circular orbit <code>3 r_s</code>.</p>
+        <p>Tidal stretch across length L:
+           <code>a = d/dr(GM/r²)·L = 2GM·L/r³</code>.
+           It decides if a crew survives before the horizon.</p>
+      </div>
+      <div class="cd">
+        <h3>Real milestones</h3>
+        <div class="tl"><b>1915–16</b> General relativity; Schwarzschild solution.</div>
+        <div class="tl"><b>1974</b> Hawking radiation predicted.</div>
+        <div class="tl"><b>2015</b> LIGO detects merging black holes.</div>
+        <div class="tl"><b>2019 / 2022</b> Event Horizon Telescope images M87* and Sgr A*.</div>
+      </div>
+      <div class="cd">
+        <h3>Escape velocity</h3>
+        <p>At radius r from a mass M: <code>v_esc = √(2GM/r)</code>. At the Schwarzschild
+        radius this equals c. Inside, nothing — not even light — escapes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ MATHS ══════════════════════════ -->
+<section class="pg" id="maths">
+  <div class="w">
+    <h2>📐 Maths Guide</h2>
+    <div class="g">
+      <div class="cd">
+        <h3>Parametric curves</h3>
+        <p>Orbit: <code>r(t) = a(cos nt, sin nt)</code>, <code>n = 2π/T</code>.
+           Speed is <code>|r′(t)| = na</code>.</p>
+      </div>
+      <div class="cd">
+        <h3>Line integral = risk</h3>
+        <p><code>R = ∫ h(r(s)) ds</code> where h is the hazard field. The agent
+           compares R for three routes.</p>
+      </div>
+      <div class="cd">
+        <h3>Gradient</h3>
+        <p><code>∇h</code> points toward increasing danger. The safest route is one
+           that keeps |∇h| low and avoids its peaks.</p>
+      </div>
+      <div class="cd">
+        <h3>Calculus of variations</h3>
+        <p>Minimise <code>∫(1 + λh) ds</code> over all paths. Solved numerically
+           with Dijkstra on a 140×140 grid, a discrete eikonal solver.</p>
+      </div>
+      <div class="cd">
+        <h3>Orbital transfer</h3>
+        <p>Vis-viva <code>v² = μ(2/r − 1/a)</code>; Hohmann time
+           <code>T = π√(a³/μ)</code> from Kepler's law.</p>
+      </div>
+      <div class="cd">
+        <h3>Tsiolkovsky equation</h3>
+        <p><code>Δv = v_e ∫dm/m = v_e ln(m₀/m_f)</code>. Integrating thrust gives
+           fuel needed.</p>
+      </div>
+      <div class="cd">
+        <h3>Derivatives in relativity</h3>
+        <p>Time dilation <code>√(1 − r_s/r)</code>, Lorentz factor
+           <code>1/√(1 − v²/c²)</code>.</p>
+      </div>
+      <div class="cd">
+        <h3>Synodic period</h3>
+        <p><code>1/S = |1/T₁ − 1/T₂|</code>. The time between successive
+           launch windows for a Hohmann transfer between two planets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ GLOSSARY ════════════════════════ -->
+<section class="pg" id="glossary">
+  <div class="w">
+    <h2>📖 Glossary</h2>
+    <div class="g" id="glossary-grid"></div>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
+
