@@ -452,3 +452,4 @@ function generateCrateredBody(width, height, lightColor, darkColor) {
   tex.wrapS = T.RepeatWrapping;
   return tex;
 }
+

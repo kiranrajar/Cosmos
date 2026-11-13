@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>COSMOS · NASA Mission Control & Deep Space Astrodynamics</title>
+  <title>COSMOS · Deep Space Astrodynamics & Exploration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Advanced aerospace mission control and deep space astrodynamics simulator. Interactive photorealistic 3D universe, AI mission analyst, black hole laboratory, and calculus guide.">
+  <meta name="description" content="Advanced deep space astrodynamics and exploration platform. Interactive 3D universe, mission flight analyst, black hole laboratory, and calculus guide.">
   <meta name="theme-color" content="#020108">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -13,34 +13,32 @@
 <!-- Primary Cinematic 3D WebGL Canvas -->
 <canvas id="c"></canvas>
 
-<!-- NASA / Aerospace Mission Control Top Navigation -->
+<!-- Top Navigation -->
 <nav>
   <a href="#home" class="nav-brand">
-    <img src="favicon.svg" alt="COSMOS Mission Logo" class="nav-brand-logo">
+    <img src="favicon.svg" alt="COSMOS Logo" class="nav-brand-logo">
     <span class="nav-brand-text">COSMOS</span>
-    <span class="nav-beacon" title="Deep Space Telemetry Online"></span>
   </a>
 
   <div class="nav-links">
-    <a href="#home">Mission Deck</a>
-    <a href="#universe">3D Universe</a>
-    <a href="#agent">Flight Analyst</a>
-    <a href="#blackholes">Relativity Lab</a>
-    <a href="#maths">Astrodynamics</a>
-    <a href="#glossary">Astro Lexicon</a>
+    <a href="#home">Home</a>
+    <a href="#universe">Universe</a>
+    <a href="#agent">Mission Analyst</a>
+    <a href="#blackholes">Black Holes</a>
+    <a href="#maths">Maths Guide</a>
+    <a href="#glossary">Glossary</a>
   </div>
 </nav>
 
-<!-- ═══════════════════════════ MISSION DECK (HOME) ═══════════════════════════ -->
+<!-- ═══════════════════════════ HOME ═══════════════════════════ -->
 <section class="pg on" id="home">
   <div class="w">
     <div class="hero">
-      <div class="hero-badge">Deep Space Astrodynamics Center · J2000 Ephemeris</div>
       <h1>COSMOS</h1>
       <p>
-        An immersive aerospace-grade celestial exploration engine and trajectory optimiser.
-        Driven by authentic JPL ephemerides, calculus of variations, and relativistic metrics,
-        empowering research into interplanetary trajectories and spacetime singularities.
+        An immersive celestial exploration engine and trajectory optimiser.
+        Navigate orbital data, compute interplanetary transfers with real calculus,
+        and explore spacetime singularities across deep space.
       </p>
 
       <div class="hero-actions">
@@ -50,7 +48,7 @@
         </a>
         <a href="#agent" class="btn-secondary">
           <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          Launch Mission Analyst
+          Run Mission Analyst
         </a>
         <a href="#blackholes" class="btn-secondary">
           <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -59,56 +57,36 @@
       </div>
     </div>
 
-    <!-- Live Telemetry Stats Bar -->
-    <div class="stats-bar cd">
-      <div class="stat-item">
-        <span class="stat-val" id="sv-planets">9 Bodies</span>
-        <span class="stat-lbl">Planetary Ephemerides</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-val" id="sv-objects">12 Systems</span>
-        <span class="stat-lbl">Deep Space Targets</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-val" id="sv-date">--</span>
-        <span class="stat-lbl">Mission Clock (UTC)</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-val" id="sv-day">--</span>
-        <span class="stat-lbl">J2000 Epoch Day</span>
-      </div>
-    </div>
-
-    <!-- Operations Modules Grid -->
+    <!-- Core Exploration Modules Grid -->
     <div class="g">
       <a class="cd" href="#universe">
-        <h3>🌌 Photorealistic 3D Universe</h3>
-        <p>Interactive procedural celestial spheres, multi-octave surface shaders, axial spins, luminous planetary rings, and volumetric star fields.</p>
+        <h3>🌌 3D Universe</h3>
+        <p>Interactive 3D Sun, all 8 planets and Pluto, plus stars, nebulae, galaxies, and black holes with authentic distances and masses.</p>
       </a>
       <a class="cd" href="#agent">
-        <h3>🛰️ AI Flight Path Analyst</h3>
-        <p>Heliocentric orbital transfers via Keplerian vis-viva equations and discrete 2D eikonal hazard-field path optimisation.</p>
+        <h3>🛰️ AI Mission Analyst</h3>
+        <p>Heliocentric orbital transfers via Keplerian vis-viva calculus and discrete 2D hazard-field trajectory path optimisation.</p>
       </a>
       <a class="cd" href="#blackholes">
-        <h3>🕳️ Relativistic Singularity Lab</h3>
-        <p>Real-time Schwarzschild radius, frame-dragging limits, gravitational time dilation, and tidal tensor spaghettification calculations.</p>
+        <h3>🕳️ Black Hole Lab</h3>
+        <p>Real-time Schwarzschild radius, photon sphere, gravitational time dilation, and tidal force spaghettification calculations.</p>
       </a>
       <a class="cd" href="#maths">
-        <h3>📐 Astrodynamic Formulations</h3>
-        <p>Theoretical breakdown of line integrals, gradient fields, Tsiolkovsky mass ratios, and relativistic Lorentz transformations.</p>
+        <h3>📐 Maths Guide</h3>
+        <p>Clear explanations of the parametric curves, line integrals, gradients, and Tsiolkovsky rocket equations powering the engine.</p>
       </a>
       <a class="cd" href="#glossary">
-        <h3>📖 Aerospace Lexicon</h3>
-        <p>Rigorous scientific glossary spanning orbital mechanics, celestial coordinates, and radiation hazard indices.</p>
+        <h3>📖 Glossary</h3>
+        <p>Key terms explained: AU, light-year, delta-v, Hohmann transfer, Lorentz factor, and Schwarzschild metrics.</p>
       </a>
     </div>
 
     <div class="cd" style="margin-top:20px">
-      <h3>Scientific Provenance & Ephemerides</h3>
+      <h3>Data and Scientific Basis</h3>
       <p class="mu">
-        Planetary positions are propagated from standard NASA JPL J2000 mean orbital elements with true anomaly expansions.
-        Deep-space astronomical metrics reflect published peer-reviewed values from the European Southern Observatory (ESO),
-        Hubble, and the Event Horizon Telescope (EHT). Radiation thresholds derived from the Mars Science Laboratory (MSL) RAD dataset.
+        Planetary positions are calculated from NASA JPL J2000 mean orbital elements propagated to today's date.
+        Deep-space distances and masses reflect published astronomical values.
+        Radiation models are calibrated using Mars Science Laboratory (MSL) RAD flight measurements.
       </p>
     </div>
   </div>
@@ -117,9 +95,9 @@
 <!-- ═══════════════════════════ 3D UNIVERSE HUD ═══════════════════════════ -->
 <section class="pg" id="universe">
   <div id="hint">
-    <span>Click celestial object · Drag to orbit · Scroll to zoom</span>
-    <span style="opacity:0.3">|</span>
-    <span>Time warp:</span>
+    <span>Click object to inspect · Drag to orbit · Scroll to zoom</span>
+    <span style="opacity:0.35">|</span>
+    <span>Time:</span>
     <input id="sp" type="range" min="0" max="250" value="20" style="width:110px;vertical-align:middle">
     <span id="speed-indicator">20 d/s</span>
   </div>
@@ -130,9 +108,9 @@
 <!-- ═══════════════════════════ AI MISSION ANALYST ═══════════════════════════ -->
 <section class="pg" id="agent">
   <div class="w">
-    <h2>🛰️ AI Flight Path Analyst</h2>
+    <h2>🛰️ AI Mission Analyst</h2>
     <p class="mu">
-      Autonomous astrodynamics planner: computes optimal launch windows, vis-viva velocity impulses,
+      On-device trajectory solver: computes optimal launch windows, delta-v velocity impulses,
       and evaluates radiation hazard line-integrals over a 140×140 discrete eikonal grid.
     </p>
 
@@ -144,48 +122,48 @@
         <label>Target Destination:
           <select id="st"></select>
         </label>
-        <label>Propulsion Profile:
+        <label>Ship Speed (Deep Space):
           <select id="sv">
-            <option value="17">Voyager 1 Hyperbolic: 17 km/s</option>
-            <option value="29979">Relativistic Ion Beam: 0.1 c</option>
-            <option value="149896">Antimatter Drive: 0.5 c</option>
+            <option value="17">Voyager 1: 17 km/s (real)</option>
+            <option value="29979">0.1 c (hypothetical)</option>
+            <option value="149896">0.5 c (hypothetical)</option>
           </select>
         </label>
       </div>
 
       <div class="row">
-        <label>Hazard Avoidance Factor (λ): <b id="lv" style="color:var(--cyan-telemetry)">1.0</b>
+        <label>Caution Factor (λ): <b id="lv" style="color:var(--cyan-telemetry)">1.0</b>
           <input id="lam" type="range" min="0" max="3" step=".1" value="1" style="width:140px">
         </label>
-        <button id="go">▶ Compute Trajectory</button>
-        <button id="clear-rep" style="opacity:.7">✕ Reset</button>
+        <button id="go">▶ Run Mission Analysis</button>
+        <button id="clear-rep" style="opacity:.7">✕ Clear</button>
       </div>
     </div>
 
     <canvas id="mc" width="900" height="560"></canvas>
-    <div id="log" style="margin-top:14px">Telemetry telemetry system standby. Select trajectory vectors and execute calculation.</div>
+    <div id="log" style="margin-top:14px">Agent idle. Choose mission parameters and press Run.</div>
     <div id="rep"></div>
   </div>
 </section>
 
-<!-- ═══════════════════════════ RELATIVITY & BLACK HOLES ═══════════════════════════ -->
+<!-- ═══════════════════════════ BLACK HOLE LAB ═══════════════════════════ -->
 <section class="pg" id="blackholes">
   <div class="w">
-    <h2>🕳️ Relativistic Singularity Laboratory</h2>
-    <p class="mu">Interactive general relativity solver exploring metric tensor solutions, event horizons, and tidal kinematics.</p>
+    <h2>🕳️ Black Hole Lab</h2>
+    <p class="mu">General relativity simulator exploring metric tensor solutions, event horizons, and tidal forces.</p>
 
     <div class="cd" style="margin-top:16px">
       <div class="row">
-        <button data-e="1.326">Cygnus X-1 (Stellar)</button>
-        <button data-e="6.633">Sagittarius A* (Milky Way Supermassive)</button>
-        <button data-e="9.813">M87* (Elliptical Core)</button>
+        <button data-e="1.326">Cygnus X-1</button>
+        <button data-e="6.633">Sagittarius A*</button>
+        <button data-e="9.813">M87*</button>
       </div>
 
-      <p style="margin-top:16px">Black Hole Mass (M☉ log scale): <b id="bn" style="color:var(--gold-pulsar)"></b>
+      <p style="margin-top:16px">Mass: <b id="bn" style="color:var(--gold-pulsar)"></b> M☉
         <input id="bm" type="range" min="0.3" max="10.5" step=".01" value="1.326" style="width:100%">
       </p>
 
-      <p>Observer Radial Coordinate: <b id="kn" style="color:var(--cyan-telemetry)"></b> × r<sub>s</sub>
+      <p>Distance: <b id="kn" style="color:var(--cyan-telemetry)"></b> × r<sub>s</sub>
         <input id="bk" type="range" min="1.01" max="30" step=".01" value="3" style="width:100%">
       </p>
 
@@ -194,68 +172,66 @@
 
     <div class="g" style="margin-top:16px">
       <div class="cd">
-        <h3>Geometric Anatomy</h3>
-        <p>Schwarzschild Event Horizon: <code>r_s = 2GM/c²</code>.</p>
-        <p>Unstable Photon Sphere: <code>r_ph = 1.5 r_s</code>.</p>
-        <p>Innermost Stable Circular Orbit: <code>r_isco = 3.0 r_s</code>.</p>
-        <p>Tidal differential acceleration across human height L (2 m):<br>
-        <code>Δa = (2GM / r³) · L</code>.</p>
+        <h3>Anatomy</h3>
+        <p>Event Horizon: <code>r_s = 2GM/c²</code>.</p>
+        <p>Photon Sphere: <code>1.5 r_s</code>.</p>
+        <p>Innermost Stable Circular Orbit: <code>3.0 r_s</code>.</p>
+        <p>Tidal stretch across length L (2 m): <code>a = 2GM·L / r³</code>.</p>
       </div>
 
       <div class="cd">
-        <h3>Observational Milestones</h3>
-        <div class="tl"><b>1916</b> Karl Schwarzschild derives the exact vacuum field metric.</div>
-        <div class="tl"><b>1974</b> Stephen Hawking predicts quantum black hole evaporation.</div>
-        <div class="tl"><b>2015</b> Advanced LIGO observes GW150914 gravitational wave chirp.</div>
-        <div class="tl"><b>2019 / 2022</b> Event Horizon Telescope images M87* and Sagittarius A*.</div>
+        <h3>Real Milestones</h3>
+        <div class="tl"><b>1915–16</b> General relativity; Schwarzschild solution.</div>
+        <div class="tl"><b>1974</b> Hawking radiation predicted.</div>
+        <div class="tl"><b>2015</b> LIGO detects merging black holes.</div>
+        <div class="tl"><b>2019 / 2022</b> Event Horizon Telescope images M87* and Sgr A*.</div>
       </div>
 
       <div class="cd">
-        <h3>Hawking Evaporation</h3>
-        <p>Thermodynamic black body temperature:<br>
-        <code>T_H = ħc³ / (8πGMk_B)</code>.</p>
-        <p>Supermassive black holes possess near-absolute-zero temperatures cooler than the 2.725 K Cosmic Microwave Background.</p>
+        <h3>Escape Velocity</h3>
+        <p>At radius r: <code>v_esc = √(2GM / r)</code>.</p>
+        <p>At the Schwarzschild radius this equals c. Inside, nothing — not even light — escapes.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════ ASTRODYNAMICS & CALCULUS ═══════════════════════════ -->
+<!-- ═══════════════════════════ MATHS GUIDE ═══════════════════════════ -->
 <section class="pg" id="maths">
   <div class="w">
-    <h2>📐 Astrodynamics & Calculus Formulations</h2>
+    <h2>📐 Maths Guide</h2>
     <div class="g">
       <div class="cd">
-        <h3>Parametric Orbit Curves</h3>
-        <p>Heliocentric orbital motion: <code>r(t) = a(cos nt, sin nt)</code> where mean motion <code>n = 2π / T</code>. Heliocentric tangential velocity equals <code>|r′(t)| = na</code>.</p>
+        <h3>Parametric Curves</h3>
+        <p>Orbit: <code>r(t) = a(cos nt, sin nt)</code>, <code>n = 2π / T</code>. Speed is <code>|r′(t)| = na</code>.</p>
       </div>
       <div class="cd">
-        <h3>Hazard Line Integrals</h3>
-        <p>Cumulative cosmic radiation and debris risk: <code>R = ∫ h(r(s)) ds</code> along trajectory arc length s, balancing solar energetic particles against route length.</p>
+        <h3>Line Integral = Risk</h3>
+        <p><code>R = ∫ h(r(s)) ds</code> where h is the hazard field. The agent compares R across different routes.</p>
       </div>
       <div class="cd">
-        <h3>Hazard Potential Gradients</h3>
-        <p>Danger gradient vector: <code>∇h = (∂h/∂x, ∂h/∂y)</code>. Path optimisation steers orthogonal to steep gradients to prevent catastrophic planetary radiation belt incursions.</p>
+        <h3>Gradient</h3>
+        <p><code>∇h</code> points toward increasing danger. The safest route stays orthogonal to steep peaks.</p>
       </div>
       <div class="cd">
         <h3>Calculus of Variations</h3>
-        <p>Cost functional minimization: <code>J[y] = ∫ (1 + λ·h) ds</code>. Solved numerically on a discrete 140×140 lattice through fast Dijkstra wave-front propagation.</p>
+        <p>Minimise <code>∫(1 + λh) ds</code> over all paths. Solved numerically with Dijkstra on a 140×140 grid.</p>
       </div>
       <div class="cd">
-        <h3>Vis-Viva Velocity Impulses</h3>
-        <p>Orbital kinetic energy: <code>v² = μ(2/r − 1/a)</code>. The Hohmann semi-major axis equals <code>a_trans = (r₁ + r₂)/2</code>, yielding minimum-impulse transfers.</p>
+        <h3>Orbital Transfer</h3>
+        <p>Vis-viva: <code>v² = μ(2/r − 1/a)</code>; Hohmann transfer time: <code>T = π√(a³/μ)</code> from Kepler’s law.</p>
       </div>
       <div class="cd">
-        <h3>Tsiolkovsky Rocket Equation</h3>
-        <p>Propellant mass budget: <code>Δv = v_e ln(m₀ / m_f)</code>. Integrating variable exhaust velocity determines chemical and ion engine propellant ratios.</p>
+        <h3>Tsiolkovsky Equation</h3>
+        <p><code>Δv = v_e ln(m₀ / m_f)</code>. Integrating engine thrust gives the propellant mass ratio.</p>
       </div>
       <div class="cd">
-        <h3>Relativistic Metric Shifts</h3>
-        <p>Gravitational time dilation: <code>dτ = dt √(1 − r_s / r)</code>. Relativistic Lorentz factor <code>γ = 1 / √(1 − v²/c²)</code> regulates interstellar crew aging.</p>
+        <h3>Derivatives in Relativity</h3>
+        <p>Time dilation: <code>√(1 − r_s / r)</code>, Lorentz factor: <code>1 / √(1 − v²/c²)</code>.</p>
       </div>
       <div class="cd">
-        <h3>Planetary Synodic Cadence</h3>
-        <p>Resonance interval between launch opportunities: <code>1/S = |1/T₁ − 1/T₂|</code>. Governs planetary alignment geometry for optimal transfer departure dates.</p>
+        <h3>Synodic Period</h3>
+        <p><code>1/S = |1/T₁ − 1/T₂|</code>. Sets the cadence between optimal Hohmann transfer launch windows.</p>
       </div>
     </div>
   </div>
@@ -264,7 +240,7 @@
 <!-- ═══════════════════════════ GLOSSARY ═══════════════════════════ -->
 <section class="pg" id="glossary">
   <div class="w">
-    <h2>📖 Aerospace & Astrodynamics Lexicon</h2>
+    <h2>📖 Glossary</h2>
     <div class="g" id="glossary-grid"></div>
   </div>
 </section>

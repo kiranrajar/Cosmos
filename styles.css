@@ -1,12 +1,12 @@
 /* ============================================================
-   styles.css — NASA Mission-Control & Deep Space Aesthetic
-   - Deep cosmic void palettes & subtle starlight gradients
-   - Aerospace HUD telemetry, glowing scanlines, frosted glassmorphism
-   - Technical monospaced readouts, luminous status beacons
-   - Smooth cinematic transitions, interactive hover lifts, responsive grid
+   styles.css — Clean, Futuristic Deep Space Aesthetic
+   - Deep void backgrounds & balanced glassmorphic cards
+   - Minimalist modern typography (Space Grotesk, Inter, JetBrains Mono)
+   - Luminous subtle borders and smooth cinematic transitions
+   - Spacious, uncluttered, professional layout
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700;800&display=swap');
 
 :root {
   color-scheme: dark;
@@ -15,12 +15,12 @@
   --bg-void:        #020108;
   --bg-deep:        #050814;
   --bg-surface:     rgba(8, 14, 32, 0.72);
-  --bg-card:        rgba(10, 18, 42, 0.65);
-  --bg-card-hover:  rgba(16, 28, 64, 0.82);
+  --bg-card:        rgba(10, 18, 42, 0.62);
+  --bg-card-hover:  rgba(15, 26, 60, 0.80);
 
-  /* Aerospace Neon Accents */
+  /* Clean Space Accents */
   --cyan-telemetry: #4df9ff;
-  --cyan-glow:      rgba(77, 249, 255, 0.45);
+  --cyan-glow:      rgba(77, 249, 255, 0.40);
   --blue-mission:   #2e70ff;
   --violet-deep:    #7b42ff;
   --gold-pulsar:    #ffd056;
@@ -33,18 +33,17 @@
   --fg-muted:       #687a9e;
 
   /* Borders & Highlights */
-  --border-hud:       rgba(77, 249, 255, 0.22);
-  --border-hud-hover: rgba(77, 249, 255, 0.65);
+  --border-hud:       rgba(77, 249, 255, 0.18);
+  --border-hud-hover: rgba(77, 249, 255, 0.55);
   --border-subtle:    rgba(255, 255, 255, 0.08);
 
   /* Radii & Shadows */
-  --rad-sm:  8px;
-  --rad-md:  14px;
-  --rad-lg:  22px;
+  --rad-sm:   8px;
+  --rad-md:   14px;
+  --rad-lg:   22px;
   --rad-pill: 9999px;
 
-  --shadow-hud: 0 8px 32px 0 rgba(0, 0, 0, 0.65), 0 0 20px -5px rgba(77, 249, 255, 0.15);
-  --shadow-glow: 0 0 24px rgba(77, 249, 255, 0.35);
+  --shadow-hud: 0 8px 32px 0 rgba(0, 0, 0, 0.65), 0 0 16px -4px rgba(77, 249, 255, 0.12);
 }
 
 *, *::before, *::after {
@@ -72,20 +71,18 @@ canvas#c {
   z-index: 0;
 }
 
-/* Subdued scanline telemetry overlay */
+/* Smooth ambient space vignette */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, rgba(13, 22, 52, 0.1) 0%, rgba(2, 1, 8, 0.75) 100%),
-              linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
-  background-size: 100% 100%, 100% 4px;
+  background: radial-gradient(circle at 50% 45%, rgba(13, 22, 52, 0.12) 0%, rgba(2, 1, 8, 0.65) 100%);
   z-index: 1;
 }
 
 /* ────────────────────────────────────────────────────────────
-   NAVIGATION HUD
+   NAVIGATION
    ──────────────────────────────────────────────────────────── */
 nav {
   position: fixed;
@@ -96,11 +93,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: calc(12px + env(safe-area-inset-top, 0px)) 24px 12px;
-  background: rgba(4, 8, 20, 0.75);
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 28px 12px;
+  background: rgba(4, 8, 20, 0.78);
   backdrop-filter: blur(18px) saturate(180%);
   border-bottom: 1px solid var(--border-hud);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .nav-brand {
@@ -113,34 +110,26 @@ nav {
 .nav-brand-logo {
   width: 32px;
   height: 32px;
-  filter: drop-shadow(0 0 10px var(--cyan-telemetry));
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(77, 249, 255, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-brand:hover .nav-brand-logo {
+  transform: rotate(15deg) scale(1.05);
+  box-shadow: 0 0 20px rgba(77, 249, 255, 0.7);
 }
 
 .nav-brand-text {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 800;
   font-size: 17px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.22em;
   color: #fff;
   text-transform: uppercase;
   background: linear-gradient(135deg, #ffffff 40%, var(--cyan-telemetry) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.nav-beacon {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--emerald-safe);
-  box-shadow: 0 0 8px var(--emerald-safe);
-  animation: pulseBeacon 2s infinite ease-in-out;
-}
-
-@keyframes pulseBeacon {
-  0%, 100% { opacity: 0.4; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.3); }
 }
 
 .nav-links {
@@ -154,9 +143,9 @@ nav {
 
 .nav-links a {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--fg-secondary);
   text-decoration: none;
   padding: 6px 14px;
@@ -169,15 +158,14 @@ nav {
 .nav-links a:hover {
   color: #ffffff;
   background: rgba(77, 249, 255, 0.08);
-  border-color: rgba(77, 249, 255, 0.25);
-  box-shadow: 0 0 12px rgba(77, 249, 255, 0.2);
+  border-color: rgba(77, 249, 255, 0.22);
 }
 
 .nav-links a.on {
   color: #ffffff;
-  background: linear-gradient(90deg, rgba(46, 112, 255, 0.8), rgba(123, 66, 255, 0.8));
-  border-color: rgba(77, 249, 255, 0.4);
-  box-shadow: 0 0 16px rgba(46, 112, 255, 0.4);
+  background: linear-gradient(90deg, rgba(46, 112, 255, 0.85), rgba(123, 66, 255, 0.85));
+  border-color: rgba(77, 249, 255, 0.35);
+  box-shadow: 0 0 16px rgba(46, 112, 255, 0.35);
 }
 
 /* ────────────────────────────────────────────────────────────
@@ -199,12 +187,12 @@ nav {
 
 .pg.on {
   display: block;
-  animation: pageFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: pageFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes pageFadeIn {
-  from { opacity: 0; transform: translateY(12px) scale(0.995); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 #universe {
@@ -215,56 +203,39 @@ nav {
 }
 
 .w {
-  max-width: 1100px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
 /* ────────────────────────────────────────────────────────────
-   CINEMATIC HERO
+   CLEAN HERO SECTION
    ──────────────────────────────────────────────────────────── */
 .hero {
   text-align: center;
-  padding: 6vh 0 3vh;
+  padding: 8vh 0 4vh;
   position: relative;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 14px;
-  border-radius: var(--rad-pill);
-  background: rgba(77, 249, 255, 0.08);
-  border: 1px solid var(--border-hud);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  color: var(--cyan-telemetry);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  box-shadow: 0 0 15px rgba(77, 249, 255, 0.15);
 }
 
 .hero h1 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(42px, 9vw, 84px);
+  font-size: clamp(48px, 9vw, 86px);
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em;
   margin: 0;
   color: #fff;
   text-transform: uppercase;
   line-height: 1.05;
-  background: linear-gradient(180deg, #ffffff 40%, #a2c6ff 80%, var(--cyan-telemetry) 100%);
+  background: linear-gradient(180deg, #ffffff 40%, #c4dafe 75%, var(--cyan-telemetry) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 40px rgba(77, 249, 255, 0.4));
+  filter: drop-shadow(0 0 35px rgba(77, 249, 255, 0.35));
 }
 
 .hero p {
   color: var(--fg-secondary);
-  font-size: clamp(14px, 2vw, 17px);
-  max-width: 720px;
-  margin: 16px auto 28px;
+  font-size: clamp(15px, 2vw, 17px);
+  max-width: 680px;
+  margin: 18px auto 32px;
   line-height: 1.65;
 }
 
@@ -273,23 +244,21 @@ nav {
   justify-content: center;
   flex-wrap: wrap;
   gap: 14px;
-  margin-bottom: 24px;
 }
 
 .btn-primary {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 13.5px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: #fff;
   background: linear-gradient(135deg, #2e70ff, #7b42ff);
   padding: 10px 24px;
   border-radius: var(--rad-pill);
   border: 1px solid rgba(77, 249, 255, 0.4);
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(46, 112, 255, 0.5);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 20px rgba(46, 112, 255, 0.45);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -297,7 +266,7 @@ nav {
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(77, 249, 255, 0.65);
+  box-shadow: 0 0 28px rgba(77, 249, 255, 0.6);
   border-color: #fff;
 }
 
@@ -305,7 +274,7 @@ nav {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 13.5px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   color: var(--fg-primary);
   background: rgba(8, 14, 32, 0.8);
   padding: 10px 22px;
@@ -313,7 +282,7 @@ nav {
   border: 1px solid var(--border-hud);
   cursor: pointer;
   backdrop-filter: blur(8px);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -324,17 +293,17 @@ nav {
   border-color: var(--cyan-telemetry);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 0 16px rgba(77, 249, 255, 0.25);
+  box-shadow: 0 0 16px rgba(77, 249, 255, 0.22);
 }
 
 /* ────────────────────────────────────────────────────────────
-   AEROSPACE GLASS CARDS & GRID
+   CARDS & GRID
    ──────────────────────────────────────────────────────────── */
 .g {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
-  margin: 20px 0;
+  margin: 24px 0;
 }
 
 .cd {
@@ -344,28 +313,13 @@ nav {
   padding: 18px 20px;
   backdrop-filter: blur(14px) saturate(160%);
   box-shadow: var(--shadow-hud);
-  position: relative;
-  overflow: hidden;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Subtle corner telemetry tick */
-.cd::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 14px;
-  height: 2px;
-  background: var(--cyan-telemetry);
-  box-shadow: 0 0 8px var(--cyan-telemetry);
 }
 
 .cd h2, .cd h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 17px;
-  letter-spacing: 0.02em;
+  font-size: 16.5px;
   color: var(--cyan-telemetry);
   margin-top: 0;
   display: flex;
@@ -387,44 +341,7 @@ a.cd:hover {
   background: var(--bg-card-hover);
   border-color: var(--border-hud-hover);
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(77, 249, 255, 0.22);
-}
-
-/* ────────────────────────────────────────────────────────────
-   LIVE TELEMETRY STATS BAR
-   ──────────────────────────────────────────────────────────── */
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-  margin: 24px 0;
-  padding: 16px 20px;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  padding: 6px 12px;
-  border-left: 2px solid rgba(77, 249, 255, 0.3);
-}
-
-.stat-val {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.02em;
-  text-shadow: 0 0 12px rgba(77, 249, 255, 0.4);
-}
-
-.stat-lbl {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--fg-muted);
-  margin-top: 2px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(77, 249, 255, 0.2);
 }
 
 /* ────────────────────────────────────────────────────────────
@@ -467,7 +384,6 @@ a.cd:hover {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.04em;
   color: var(--fg-secondary);
   background: rgba(8, 16, 36, 0.8);
   border: 1px solid var(--border-hud);
@@ -482,7 +398,7 @@ a.cd:hover {
   color: #fff;
   border-color: var(--cyan-telemetry);
   background: rgba(16, 32, 70, 0.9);
-  box-shadow: 0 0 12px rgba(77, 249, 255, 0.35);
+  box-shadow: 0 0 12px rgba(77, 249, 255, 0.3);
   transform: translateY(-1px);
 }
 
@@ -498,15 +414,15 @@ a.cd:hover {
   border-radius: var(--rad-md);
   padding: 20px;
   backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(77, 249, 255, 0.25);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(77, 249, 255, 0.22);
   overflow-y: auto;
   display: none;
   animation: hudSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes hudSlideUp {
-  from { opacity: 0; transform: translateY(20px) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ────────────────────────────────────────────────────────────
@@ -553,7 +469,6 @@ select:hover, select:focus {
   border-color: rgba(77, 249, 255, 0.4);
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  letter-spacing: 0.05em;
   padding: 8px 22px;
   box-shadow: 0 0 16px rgba(46, 112, 255, 0.4);
 }
@@ -613,7 +528,7 @@ select:hover, select:focus {
 .tl b {
   font-family: 'Space Grotesk', sans-serif;
   color: #fff;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 code {
@@ -657,10 +572,9 @@ code {
    RESPONSIVENESS
    ──────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  nav { padding: 10px 14px; }
-  .nav-brand-text { font-size: 14px; }
-  .hero { padding: 4vh 0 2vh; }
-  .hero h1 { font-size: 38px; }
-  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  nav { padding: 10px 16px; }
+  .nav-brand-text { font-size: 15px; }
+  .hero { padding: 5vh 0 3vh; }
+  .hero h1 { font-size: 42px; }
   #info { max-width: calc(100vw - 32px); left: 16px; right: 16px; }
 }
