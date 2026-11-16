@@ -4,7 +4,7 @@
    Black Hole Lab, Time-Warp Controls, and Responsive Routing.
    ============================================================ */
 
-import { P, D, f, fe, days, ang, dstr, vorb, kind, GLOSSARY } from './data.js';
+import { P, D, f, fe, days, ang, dstr, vorb, kind } from './data.js';
 import { initUniverse } from './universe.js';
 import { planet, deepSpace } from './agent.js';
 import { initBlackHoleLab } from './blackhole.js';
@@ -39,26 +39,7 @@ if (spRange && spInd) {
 }
 
 /* ────────────────────────────────────────────────────────────
-   3. GLOSSARY BUILDER
-   ──────────────────────────────────────────────────────────── */
-(function buildGlossary() {
-  const grid = $('glossary-grid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  GLOSSARY.forEach(({ term, symbol, def }) => {
-    const div = document.createElement('div');
-    div.className = 'cd gloss-entry';
-    div.innerHTML = `
-      <h3>${term}</h3>
-      <p><code>${symbol}</code></p>
-      <p style="margin-top:6px">${def}</p>
-    `;
-    grid.appendChild(div);
-  });
-})();
-
-/* ────────────────────────────────────────────────────────────
-   4. CELESTIAL INSPECTION POPUP CARD
+   3. CELESTIAL INSPECTION POPUP CARD
    ──────────────────────────────────────────────────────────── */
 const row = (a, b) => `<div class="k"><span>${a}</span><span>${b}</span></div>`;
 
@@ -157,7 +138,7 @@ window.tgt = k => {
 };
 
 /* ────────────────────────────────────────────────────────────
-   6. QUICK-SELECT OBJECT CHIPS
+   4. QUICK-SELECT OBJECT CHIPS
    ──────────────────────────────────────────────────────────── */
 const chips = $('chips');
 if (chips) {
@@ -173,7 +154,7 @@ if (chips) {
 }
 
 /* ────────────────────────────────────────────────────────────
-   7. AI MISSION ANALYST WIRING
+   5. AI MISSION ANALYST WIRING
    ──────────────────────────────────────────────────────────── */
 const soSelect = $('so');
 if (soSelect) {
@@ -235,6 +216,6 @@ if (clearBtn) {
 }
 
 /* ────────────────────────────────────────────────────────────
-   8. BLACK HOLE LAB INITIALIZATION
+   6. BLACK HOLE LAB INITIALIZATION
    ──────────────────────────────────────────────────────────── */
 initBlackHoleLab();

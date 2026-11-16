@@ -544,31 +544,6 @@ code {
 .ok   { color: var(--emerald-safe) !important; font-weight: 700; }
 
 /* ────────────────────────────────────────────────────────────
-   GLOSSARY CARDS
-   ──────────────────────────────────────────────────────────── */
-.gloss-entry {
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.gloss-entry:hover {
-  transform: translateY(-2px);
-  border-color: var(--cyan-telemetry);
-}
-.gloss-entry h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  color: #fff;
-  font-size: 15px;
-  margin-bottom: 4px;
-}
-.gloss-entry p {
-  font-size: 13px;
-  color: var(--fg-secondary);
-  margin: 4px 0 0;
-}
-.gloss-entry code {
-  font-size: 11.5px;
-}
-
-/* ────────────────────────────────────────────────────────────
    RESPONSIVENESS
    ──────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
