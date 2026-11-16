@@ -349,34 +349,36 @@ a.cd:hover {
    ──────────────────────────────────────────────────────────── */
 #hint {
   position: fixed;
-  top: calc(66px + env(safe-area-inset-top, 0px));
+  top: calc(76px + env(safe-area-inset-top, 0px));
   left: 20px;
   z-index: 15;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   color: var(--fg-secondary);
-  background: rgba(4, 10, 26, 0.85);
+  background: rgba(4, 10, 26, 0.88);
   border: 1px solid var(--border-hud);
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: var(--rad-pill);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   box-shadow: var(--shadow-hud);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  pointer-events: auto;
 }
 
 #chips {
   position: fixed;
-  top: calc(112px + env(safe-area-inset-top, 0px));
-  left: 14px;
-  right: 14px;
+  top: calc(134px + env(safe-area-inset-top, 0px));
+  left: 20px;
+  right: 20px;
   z-index: 15;
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding: 4px 6px 8px;
+  padding: 6px 4px 10px;
   scrollbar-width: none;
+  pointer-events: auto;
 }
 #chips::-webkit-scrollbar { display: none; }
 
@@ -551,5 +553,17 @@ code {
   .nav-brand-text { font-size: 15px; }
   .hero { padding: 5vh 0 3vh; }
   .hero h1 { font-size: 42px; }
+  #hint {
+    top: calc(72px + env(safe-area-inset-top, 0px));
+    left: 14px;
+    right: 14px;
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+  #chips {
+    top: calc(128px + env(safe-area-inset-top, 0px));
+    left: 14px;
+    right: 14px;
+  }
   #info { max-width: calc(100vw - 32px); left: 16px; right: 16px; }
 }

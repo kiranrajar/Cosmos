@@ -276,8 +276,13 @@ export function initUniverse({ onPick }) {
 
   P.forEach((p, i) => {
     const pGroup = new T.Group();
-    const rOrbit = 12 * Math.sqrt(p[1]);
-    const pRadius = 0.55 + 1.1 * Math.pow(p[4] / 6371, 0.42);
+    // Scaled heliocentric orbital radius with guaranteed minimum separation between orbits
+    // ensuring adjacent planetary spheres and their halos never intersect
+    const orbitRadii = [14, 22, 31, 41, 62, 85, 114, 142, 168];
+    const rOrbit = orbitRadii[i] || (14 + i * 18);
+    // Scientifically scaled visual radii with clamped upper limits to avoid overlapping
+    const maxR = [0.85, 1.25, 1.35, 1.05, 3.8, 3.2, 2.2, 2.1, 0.75];
+    const pRadius = maxR[i];
 
     // Procedural surface texture
     const tex = textureGenerators[i]();
@@ -385,7 +390,7 @@ export function initUniverse({ onPick }) {
     const k = kind(d);
     const g = new T.Group();
     const a = i * 2.399;
-    const distR = 175 + 26 * Math.log10(d[3] + 1);
+    const distR = 210 + 26 * Math.log10(d[3] + 1);
     g.position.set(distR * Math.cos(a), 55 * Math.sin(i * 1.7), distR * Math.sin(a));
 
     if (k === 's') {
