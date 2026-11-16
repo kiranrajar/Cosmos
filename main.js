@@ -154,7 +154,7 @@ if (chips) {
 }
 
 /* ────────────────────────────────────────────────────────────
-   5. AI MISSION ANALYST WIRING
+   5. MISSION ANALYST WIRING
    ──────────────────────────────────────────────────────────── */
 const soSelect = $('so');
 if (soSelect) {
@@ -173,20 +173,12 @@ if (stSelect) {
   stSelect.value = 'p3'; // Mars by default
 }
 
-const lamInput = $('lam');
-if (lamInput) {
-  lamInput.oninput = e => {
-    const lv = $('lv');
-    if (lv) lv.textContent = (+e.target.value).toFixed(1);
-  };
-}
-
 const goBtn = $('go');
 if (goBtn) {
   goBtn.onclick = () => {
     const o = +$('so').value;
     const t = $('st').value;
-    const lam = +$('lam').value;
+    const lam = 1.0;
     const rep = $('rep');
     if (rep) rep.innerHTML = '';
 

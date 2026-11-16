@@ -71,14 +71,10 @@
   <div id="info"></div>
 </section>
 
-<!-- ═══════════════════════════ AI MISSION ANALYST ═══════════════════════════ -->
+<!-- ═══════════════════════════ MISSION ANALYST ═══════════════════════════ -->
 <section class="pg" id="agent">
   <div class="w">
-    <h2>🛰️ AI Mission Analyst</h2>
-    <p class="mu">
-      On-device trajectory solver: computes optimal launch windows, delta-v velocity impulses,
-      and evaluates radiation hazard line-integrals over a 140×140 discrete eikonal grid.
-    </p>
+    <h2>Mission Analyst</h2>
 
     <div class="cd" style="margin-top:16px">
       <div class="row">
@@ -87,19 +83,6 @@
         </label>
         <label>Target Destination:
           <select id="st"></select>
-        </label>
-        <label>Ship Speed (Deep Space):
-          <select id="sv">
-            <option value="17">Voyager 1: 17 km/s (real)</option>
-            <option value="29979">0.1 c (hypothetical)</option>
-            <option value="149896">0.5 c (hypothetical)</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="row">
-        <label>Caution Factor (λ): <b id="lv" style="color:var(--cyan-telemetry)">1.0</b>
-          <input id="lam" type="range" min="0" max="3" step=".1" value="1" style="width:140px">
         </label>
         <button id="go">▶ Run Mission Analysis</button>
         <button id="clear-rep" style="opacity:.7">✕ Clear</button>

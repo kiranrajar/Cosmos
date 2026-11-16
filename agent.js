@@ -270,10 +270,11 @@ export function planet(o, t, lam) {
 }
 
 /* ── Deep-space mission ── */
-export function deepSpace(i, lam) {
+export function deepSpace(i, lam = 1.0) {
   $('mc').style.display = 'none';
   const d  = D[i];
-  const v  = +$('sv').value;
+  const svEl = $('sv');
+  const v  = svEl ? +svEl.value : 17;
   const b  = v / 299792.458;
   const t  = d[3] / b;
   const gm = 1 / Math.sqrt(1 - b * b);
