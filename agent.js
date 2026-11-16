@@ -110,6 +110,8 @@ const card = (t, b) => `<div class="cd" style="margin:10px 0"><h3>${t}</h3>${b}<
 
 function say(lines, done) {
   const L = $('log');
+  if (!L) { done(); return; }
+  L.style.display = 'block';
   L.innerHTML = '';
   lines.forEach((t, i) => setTimeout(() => {
     L.innerHTML += '▸ ' + t + '<br>';

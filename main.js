@@ -185,7 +185,10 @@ if (goBtn) {
     if (t[0] === 'p') {
       if (+t.slice(1) === o) {
         const log = $('log');
-        if (log) log.textContent = 'Start and target are the same planet. Choose a different target.';
+        if (log) {
+          log.style.display = 'block';
+          log.textContent = 'Start and target are the same planet. Choose a different target.';
+        }
         return;
       }
       planet(o, +t.slice(1), lam);
@@ -202,7 +205,10 @@ if (clearBtn) {
     const log = $('log');
     const mc = $('mc');
     if (rep) rep.innerHTML = '';
-    if (log) log.textContent = 'Agent idle. Choose mission parameters and press Run.';
+    if (log) {
+      log.innerHTML = '';
+      log.style.display = 'none';
+    }
     if (mc)  mc.style.display = 'none';
   };
 }
