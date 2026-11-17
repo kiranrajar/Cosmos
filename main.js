@@ -183,14 +183,7 @@ if (goBtn) {
     if (rep) rep.innerHTML = '';
 
     if (t[0] === 'p') {
-      if (+t.slice(1) === o) {
-        const log = $('log');
-        if (log) {
-          log.style.display = 'block';
-          log.textContent = 'Start and target are the same planet. Choose a different target.';
-        }
-        return;
-      }
+      if (+t.slice(1) === o) return;
       planet(o, +t.slice(1), lam);
     } else {
       deepSpace(+t.slice(1), lam);
@@ -202,13 +195,8 @@ const clearBtn = $('clear-rep');
 if (clearBtn) {
   clearBtn.onclick = () => {
     const rep = $('rep');
-    const log = $('log');
     const mc = $('mc');
     if (rep) rep.innerHTML = '';
-    if (log) {
-      log.innerHTML = '';
-      log.style.display = 'none';
-    }
     if (mc)  mc.style.display = 'none';
   };
 }

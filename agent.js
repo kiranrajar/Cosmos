@@ -109,15 +109,7 @@ const row  = (a, b) => `<div class="k"><span>${a}</span><span>${b}</span></div>`
 const card = (t, b) => `<div class="cd" style="margin:10px 0"><h3>${t}</h3>${b}</div>`;
 
 function say(lines, done) {
-  const L = $('log');
-  if (!L) { done(); return; }
-  L.style.display = 'block';
-  L.innerHTML = '';
-  lines.forEach((t, i) => setTimeout(() => {
-    L.innerHTML += '▸ ' + t + '<br>';
-    L.scrollTop = 1e5;
-    if (i === lines.length - 1) done();
-  }, i * 330));
+  done();
 }
 
 /* ── Draw mission map ── */

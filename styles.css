@@ -492,19 +492,6 @@ select:hover, select:focus {
   display: none;
 }
 
-#log {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12.5px;
-  color: var(--cyan-telemetry);
-  background: rgba(3, 7, 20, 0.85);
-  border: 1px solid var(--border-hud);
-  border-radius: var(--rad-md);
-  padding: 14px 18px;
-  max-height: 160px;
-  overflow-y: auto;
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.6);
-}
-
 /* ────────────────────────────────────────────────────────────
    DATA KEY-VALUE ROWS & TIMELINES
    ──────────────────────────────────────────────────────────── */
