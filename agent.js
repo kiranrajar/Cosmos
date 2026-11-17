@@ -248,14 +248,18 @@ export function planet(o, t, lam) {
         row('Hohmann arc',    `R=${f(B.R,  2)} · length ${f(B.L,  2)} AU · max|∇h| ${f(B.gm,  2)}`) +
         row('Safe corridor',  `R=${f(Cc.R, 2)} · length ${f(Cc.L, 2)} AU · max|∇h| ${f(Cc.gm, 2)}`) +
         `<p>The corridor cuts risk by <b class="ok">${f(cut, 0)}%</b> versus the straight line at the cost of <b>${f(pen, 0)}%</b> extra path. Closest approach to Jupiter's radiation zone: ${f(Math.min(A.jd, B.jd, Cc.jd), 2)} AU (corridor ${f(Cc.jd, 2)} AU).${belt ? ' The route crosses the main asteroid belt (2.2–3.2 AU). It is sparse, and probes since Pioneer 10 (1972) have crossed it safely.' : ''}</p>`) +
-      card('👩‍🚀 Crew and target',
-        row('Cruise radiation (≈1.8 mSv/day, MSL RAD)', f(dose, 0) + ' mSv one way') +
-        row('Share of NASA 600 mSv career limit', `<span class="${dose > 300 ? 'warn' : ''}">${f(dose / 6, 0)}% each way</span>`) +
-        row('Target gravity / temperature', `${pt[6]} m/s² / ${pt[7]} °C`) +
-        `<p class="mu">${pt[9]}</p>` +
-        `<p class="${dose > 300 ? 'warn' : 'mu'}">${dose > 300
-          ? 'A round trip exceeds the career dose budget without heavy shielding or a faster transfer; consider robotic research first.'
-          : 'Dose is within career limits for a single leg.'}</p>`) +
+      card('Crew and Target Environment',
+        row('Cruise Radiation (≈1.8 mSv/day, MSL RAD)', `${f(dose, 0)} mSv one-way`) +
+        row('Share of NASA 600 mSv Career Limit', `<span class="${dose > 300 ? 'warn' : 'ok'}">${f(dose / 6, 0)}% per leg</span>`) +
+        row('Target Surface Gravity', `${pt[6]} m/s²`) +
+        row('Target Mean Temperature', `${pt[7]} °C`) +
+        `<div class="alert-box ${dose > 300 ? 'alert-warn' : 'alert-info'}">
+          <p class="alert-title">${dose > 300 ? '⚠️ High Radiation Advisory' : 'ℹ️ Environmental Conditions'}</p>
+          <p>${pt[9]}</p>
+          <p style="margin-top:6px;font-weight:600">${dose > 300
+            ? 'A round trip exceeds the career dose budget without heavy radiation shielding or a faster transfer. Consider robotic research first.'
+            : 'Dose remains within acceptable NASA career limits for a single transfer leg.'}</p>
+        </div>`) +
       card('⚠️ Limits',
         `<p class="mu">Circular-orbit positions (error of a few degrees), 2-D hazard model with simplified Gaussian fields, patched-conic Δv. Use as a research planner; verify with JPL Horizons and flight dynamics software before real operations.</p>` +
         `<button onclick="navigator.clipboard&&navigator.clipboard.writeText($('rep').innerText).catch(()=>{})">Copy report</button> ` +

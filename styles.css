@@ -532,6 +532,46 @@ code {
 .warn { color: var(--rose-danger) !important; font-weight: 700; }
 .ok   { color: var(--emerald-safe) !important; font-weight: 700; }
 
+/* ── Highlighted Alert & Advisory Box ── */
+.alert-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: var(--rad-sm);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.alert-box p {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+
+.alert-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 13.5px;
+  margin-top: 0 !important;
+  letter-spacing: 0.02em;
+}
+
+.alert-warn {
+  background: rgba(255, 74, 125, 0.12);
+  border: 1px solid rgba(255, 74, 125, 0.45);
+  color: #ffd0dc;
+}
+.alert-warn .alert-title {
+  color: #ff6b95;
+}
+
+.alert-info {
+  background: rgba(77, 249, 255, 0.08);
+  border: 1px solid rgba(77, 249, 255, 0.3);
+  color: var(--fg-secondary);
+}
+.alert-info .alert-title {
+  color: var(--cyan-telemetry);
+}
+
 /* ────────────────────────────────────────────────────────────
    RESPONSIVENESS
    ──────────────────────────────────────────────────────────── */
