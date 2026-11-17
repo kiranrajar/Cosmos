@@ -147,83 +147,226 @@
 <!-- ═══════════════════════════ MATHS GUIDE ═══════════════════════════ -->
 <section class="pg" id="maths">
   <div class="w">
-    <h2>📐 Maths Guide · 3D Curves, Quadric Surfaces & Astrodynamics</h2>
+    <h2>📐 Maths Guide · How Space Math Works</h2>
+    <p class="mu" style="margin-bottom:20px;font-size:14px">
+      Discover the exciting formulas behind space exploration! From 3D roller-coaster curves to giant planet shapes and rocket equations, here is how each math superpower works in COSMOS.
+    </p>
+
     <div class="g">
-      <div class="cd">
-        <h3>Parametric Curves in 3D Space</h3>
-        <p>Helical & orbital trajectory: <code>r(t) = ⟨x(t), y(t), z(t)⟩ = ⟨a·cos(nt), a·sin(nt), c·t⟩</code> where <code>n = 2π / T</code>.</p>
-        <p>Velocity vector: <code>v(t) = r′(t) = ⟨-na·sin(nt), na·cos(nt), c⟩</code>. Speed: <code>|r′(t)| = √(n²a² + c²)</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Propagates 3D planetary orbits and interplanetary spacecraft trajectories across heliocentric coordinates.</p>
+      <!-- 1. Parametric 3D Curves -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">🌀 3D Space Curves</h3>
+          <span class="math-tag">Roller-Coaster Trajectory</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">r(t) = ⟨a·cos(nt), a·sin(nt), c·t⟩</span>
+          <span class="formula-sub">Speed |r′(t)| = √(n²a² + c²)</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> Imagine riding a spiraling roller-coaster through outer space! Parametric equations tell your spaceship exactly where to be $(x, y, z)$ at every second of time $t$.
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Steers our real-time 3D planetary orbits and draws smooth spacecraft flight paths around the Sun.
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Quadric Surfaces · Ellipsoids</h3>
-        <p>Equation: <code>x²/a² + y²/b² + z²/c² = 1</code>.</p>
-        <p>Parametric form: <code>x = a·cos(u)cos(v), y = b·cos(u)sin(v), z = c·sin(u)</code> where <code>u ∈ [-π/2, π/2], v ∈ [0, 2π)</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Models planetary oblate spheroids (Jupiter/Saturn centrifugal flattening) and gravitational celestial body geometries.</p>
+      <!-- 2. Ellipsoids -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">🪐 Ellipsoids</h3>
+          <span class="math-tag">Squished Space Spheres</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">x²/a² + y²/b² + z²/c² = 1</span>
+          <span class="formula-sub">x = a·cos(u)cos(v), y = b·cos(u)sin(v), z = c·sin(u)</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> Not all planets are perfect round balls! Giant spinning gas planets like Jupiter bulge out at their equator and get squished like a spinning water balloon.
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Accurately builds 3D models of rotating planets with realistic equatorial bulges instead of plain flat circles.
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Quadric Surfaces · Paraboloids</h3>
-        <p>Elliptic: <code>z/c = x²/a² + y²/b²</code>. Hyperbolic: <code>z/c = x²/a² - y²/b²</code>.</p>
-        <p>Parametric form: <code>x = a·u·cos(v), y = b·u·sin(v), z = c·u²</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Defines parabolic escape velocity trajectories (vis-viva parabolic limit) and high-gain spacecraft antenna geometries.</p>
+      <!-- 3. Paraboloids -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">📡 Paraboloids</h3>
+          <span class="math-tag">Satellite Dish & Escape Paths</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">z = x²/a² + y²/b²</span>
+          <span class="formula-sub">Escape Velocity v = √(2GM / r)</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> Think of a giant shiny satellite dish that catches whisper-quiet signals from millions of miles away. It also draws the exact threshold curve needed to break free from the Sun's gravity!
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Calculates the exact speed a probe needs to escape solar orbit, and models high-gain radio antenna communication dishes.
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Quadric Surfaces · Hyperboloids</h3>
-        <p>One sheet: <code>x²/a² + y²/b² - z²/c² = 1</code>. Two sheets: <code>-x²/a² - y²/b² + z²/c² = 1</code>.</p>
-        <p>Parametric form (one sheet): <code>x = a·cosh(u)cos(v), y = b·cosh(u)sin(v), z = c·sinh(u)</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Governs hyperbolic gravity-assist slingshots, interstellar flybys (Voyager), and relativistic black hole ergosphere geometries.</p>
+      <!-- 4. Hyperboloids -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">⚡ Hyperboloids</h3>
+          <span class="math-tag">Gravity Slingshot Swings</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">x²/a² + y²/b² - z²/c² = 1</span>
+          <span class="formula-sub">Hyperbolic excess velocity v_∞</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> An hourglass-shaped curve! When a spacecraft zooms close to Jupiter, it swings along a hyperbolic path and gets catapulted into deep space like a pinball wizard.
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Powers Voyager 1's interstellar escape trajectory and shapes the spinning ergosphere around black holes.
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Quadric Surfaces · Elliptic Cones</h3>
-        <p>Equation: <code>z²/c² = x²/a² + y²/b²</code>.</p>
-        <p>Parametric form: <code>x = a·u·cos(v), y = b·u·sin(v), z = c·u</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Renders Mach cones, relativistic light cones (spacetime causal boundaries), and sensor telemetry field-of-view.</p>
+      <!-- 5. Cones -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">🔦 Cones</h3>
+          <span class="math-tag">Spacetime Flashlight Beams</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">z² = x²/a² + y²/b²</span>
+          <span class="formula-sub">Relativistic Light Cone: c²t² - r² = 0</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> Shine a flashlight in the dark and you see a cone of light! In physics, light cones show all the possible places in the universe you could ever reach traveling at the speed of light.
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Maps sensor coverage areas and displays relativistic spacetime boundaries where nothing can travel faster than light.
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Line Integral = Cumulative Hazard</h3>
-        <p><code>R = ∫_C h(r(s)) ds = ∫_{t₀}^{t₁} h(r(t)) |r′(t)| dt</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Integrates radiation exposure and debris density along the entire 3D spacecraft trajectory to determine safety.</p>
+      <!-- 6. Line Integral -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">🛡️ Line Integral</h3>
+          <span class="math-tag">Danger Shield Accumulator</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">R = ∫ h(r(s)) ds</span>
+          <span class="formula-sub">Total Risk = Sum of (Hazard × Step Distance)</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> Like adding up points on a treasure map! As your spaceship flies along its path, this formula adds up every bit of radiation and space dust you hit to see if your crew stays safe.
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Our Mission Analyst runs this integral to tell you if a route has too much solar radiation for astronauts to survive.
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Gradient & Field Steering</h3>
-        <p>Gradient: <code>∇h = ⟨∂h/∂x, ∂h/∂y, ∂h/∂z⟩</code> points toward steepest hazard increase.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Mission planner navigates orthogonal to steep gradients to evade Jupiter's lethal radiation belts and solar flares.</p>
+      <!-- 7. Gradient -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">🧭 The Gradient</h3>
+          <span class="math-tag">Danger Compass</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">∇h = ⟨∂h/∂x, ∂h/∂y⟩</span>
+          <span class="formula-sub">Direction of Steepest Danger</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> A magic compass that points directly toward the hottest fire! To stay completely safe, your pilot simply steers sideways or away from where $\nabla h$ is pointing.
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Steers your ship around Jupiter's lethal radiation belts and away from blistering solar corona flares.
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Calculus of Variations</h3>
-        <p>Euler-Lagrange functional minimization: <code>δ ∫ (1 + λ·h(r)) |r′| dt = 0</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Solved numerically on a discrete 140×140 lattice via Dijkstra eikonal wave-front propagation for the optimal route.</p>
+      <!-- 8. Calculus of Variations -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">🛣️ Calculus of Variations</h3>
+          <span class="math-tag">Super-Smart Route Finder</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">Minimise ∫ (1 + λ·h) ds</span>
+          <span class="formula-sub">Solved with Dijkstra on 140×140 Grid</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> Like Google Maps for the Solar System! Out of millions of possible zigzag routes through space, this calculus finds the single fastest and safest highway.
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Creates the cyan "Optimised Safe Corridor" path in the Mission Analyst map!
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Orbital Transfer · Vis-Viva</h3>
-        <p>Vis-viva: <code>v² = μ(2/r - 1/a)</code>. Hohmann transfer period: <code>T = π√(a³/μ)</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Computes velocity impulses (Δv₁, Δv₂) required for transfer burns between planetary orbits.</p>
+      <!-- 9. Orbital Transfer (Vis-Viva) -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">🚀 Vis-Viva & Transfer</h3>
+          <span class="math-tag">Space Jump Energy</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">v² = μ · (2/r - 1/a)</span>
+          <span class="formula-sub">Hohmann Transfer Time T = π√(a³ / μ)</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> How do we hop from Earth to Mars? We fire our engines once to stretch our orbit into a giant egg-shaped oval, coast peacefully across space, and fire again to brake!
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Computes the exact engine burn speeds (Δv₁ and Δv₂) and tells you the exact travel time in days.
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Tsiolkovsky Rocket Equation</h3>
-        <p><code>Δv = v_e · ln(m₀ / m_f)  ⟹  m₀/m_f = exp(Δv / v_e)</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Evaluates chemical (4.4 km/s) vs ion engine (30 km/s) propellant mass feasibility for planned missions.</p>
+      <!-- 10. Tsiolkovsky Rocket Equation -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">⛽ Tsiolkovsky Rocket Equation</h3>
+          <span class="math-tag">Rocket Fuel Calculator</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">Δv = v_e · ln(m₀ / m_f)</span>
+          <span class="formula-sub">Fuel Mass Ratio = exp(Δv / v_e)</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> The golden law of rocketry! The faster you want to go, the more fuel you must carry. But fuel is heavy, so carrying more fuel means you need even MORE fuel to lift it!
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Calculates whether chemical rocket fuel or high-tech ion beam propulsion can physically carry your ship to its destination.
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Derivatives in Relativity</h3>
-        <p>Time dilation: <code>dτ/dt = √(1 - r_s / r)</code>. Lorentz factor: <code>γ = 1 / √(1 - v²/c²)</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Calculates observer time dilation near black hole horizons and high-speed interstellar crew clocks.</p>
+      <!-- 11. Relativistic Time Dilation -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">⏳ Time Dilation</h3>
+          <span class="math-tag">Einstein's Time Machine</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">τ = t · √(1 - r_s / r)</span>
+          <span class="formula-sub">Lorentz Factor γ = 1 / √(1 - v² / c²)</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> Clocks tick slower near giant black holes and when flying near light speed! An astronaut could fly near a black hole for 1 hour while 10 years pass back on Earth!
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Calculates crew clocks in the Black Hole Lab and predicts astronaut aging on deep-space relativistic flights.
+        </div>
       </div>
 
-      <div class="cd">
-        <h3>Synodic Resonance Period</h3>
-        <p><code>1/S = |1/T₁ - 1/T₂|</code>.</p>
-        <p class="mu" style="margin-top:6px;font-size:12px"><b>In COSMOS:</b> Calculates the recurrence cadence of optimal Hohmann transfer launch windows between planetary orbits.</p>
+      <!-- 12. Synodic Launch Window -->
+      <div class="cd math-card">
+        <div class="math-card-header">
+          <h3 class="math-title">📅 Synodic Launch Window</h3>
+          <span class="math-tag">Planetary Alignment Clock</span>
+        </div>
+        <div class="math-formula-box">
+          <span class="formula-primary">1/S = |1/T₁ - 1/T₂|</span>
+          <span class="formula-sub">Waiting Time between Windows</span>
+        </div>
+        <p class="math-story">
+          <strong>The Big Idea:</strong> Earth and Mars are like two runners on a circular track. Earth runs faster on the inside lane! This formula calculates the exact day Earth catches up and lines up for the next launch jump.
+        </p>
+        <div class="math-usage">
+          <b>🚀 How COSMOS uses it:</b> Tells you the exact next launch departure date (e.g. Earth to Mars every 26 months / 780 days).
+        </div>
       </div>
     </div>
   </div>

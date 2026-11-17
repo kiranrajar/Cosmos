@@ -572,6 +572,108 @@ code {
   color: var(--cyan-telemetry);
 }
 
+/* ── Attractive Math Cards for Kids & Students ── */
+.math-card {
+  position: relative;
+  border-radius: var(--rad-md);
+  padding: 22px 20px;
+  background: rgba(8, 16, 38, 0.75);
+  border: 1px solid var(--border-hud);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+.math-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan-telemetry);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.75), 0 0 25px rgba(77, 249, 255, 0.25);
+}
+
+.math-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.math-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.math-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--rad-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(77, 249, 255, 0.12);
+  color: var(--cyan-telemetry);
+  border: 1px solid rgba(77, 249, 255, 0.3);
+}
+
+.math-formula-box {
+  background: linear-gradient(135deg, rgba(14, 24, 58, 0.9), rgba(5, 10, 26, 0.95));
+  border: 1px solid rgba(77, 249, 255, 0.28);
+  border-radius: var(--rad-sm);
+  padding: 12px 14px;
+  margin: 10px 0;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.formula-primary {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffd056;
+  text-shadow: 0 0 10px rgba(255, 208, 86, 0.4);
+  letter-spacing: 0.04em;
+  display: block;
+}
+
+.formula-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #a3b3d4;
+  margin-top: 5px;
+  display: block;
+}
+
+.math-story {
+  font-size: 13.5px;
+  color: #e2e8f0;
+  line-height: 1.55;
+  margin: 6px 0 10px;
+}
+.math-story strong {
+  color: #4df9ff;
+}
+
+.math-usage {
+  margin-top: auto;
+  padding: 10px 12px;
+  border-radius: var(--rad-sm);
+  background: rgba(46, 112, 255, 0.1);
+  border-left: 3px solid #2e70ff;
+  font-size: 12.5px;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+.math-usage b {
+  color: #7df9ff;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.02em;
+}
+
 /* ────────────────────────────────────────────────────────────
    RESPONSIVENESS
    ──────────────────────────────────────────────────────────── */
